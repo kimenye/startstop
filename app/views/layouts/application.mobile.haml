@@ -1,0 +1,16 @@
+!!!
+%html
+  %head
+    %meta{:content => "width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no", :name => "viewport"}
+    %meta{:content => "yes", :name => "apple-mobile-web-app-capable"}
+    %meta{:content => "yes", :name => "apple-touch-fullscreen"}
+    %title= content_for?(:title) ? yield(:title) : "Start/Stop App"
+    %meta{:content => content_for?(:description) ? yield(:description) : "Start/Stop", :name => "description"}
+    -#%link{:href=> "http://fonts.googleapis.com/css?family=Bowlby+One+SC", :rel=>'stylesheet',:type=>'text/css'}
+    = stylesheet_link_tag "mobile", :media => "all"
+    = javascript_include_tag "mobile"
+    = csrf_meta_tags
+    = yield(:head)
+    %link{:href => "assets/icon.png", :rel => "apple-touch-icon"}
+  %body{:class => "#{controller_name} #{action_name}"}
+    = yield
