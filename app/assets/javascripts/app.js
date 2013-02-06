@@ -1,15 +1,10 @@
-//Ext.application({
-//    launch: function () {
-//        Ext.create('Ext.Panel', {
-//            fullscreen: true,
-//            html: 'Hello World!'
-//        });
-//    }
-//});
-
 Ext.application({
-   name: 'StartStop',
-   icon: '/assets/icon.png'
+    name: 'StartStop',
+    icon: '/assets/icon.png',
+
+    models: [
+        'Player'
+    ]
 });
 
 /*Ext.application({

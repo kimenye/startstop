@@ -12,5 +12,5 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require sencha-touch-all
+//= require sencha-touch-debug-all
 //= require app
