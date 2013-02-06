@@ -12,5 +12,5 @@
     = csrf_meta_tags
     = yield(:head)
     %link{:href => "assets/icon.png", :rel => "apple-touch-icon"}
-  %body{:class => "#{controller_name} #{action_name}"}
+  %body#body-canvas{:class => "#{controller_name} #{action_name}"}
     = yield

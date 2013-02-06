@@ -47,6 +47,7 @@ Ext.define('StartStop.controller.Facebook', {
         FB.Event.subscribe('auth.logout', Ext.bind(me.onLogout, me));
 
         FB.getLoginStatus(function(response) {
+            console.log("Response : ", response);
 
             clearTimeout(me.fbLoginTimeout);
 
@@ -54,7 +55,7 @@ Ext.define('StartStop.controller.Facebook', {
             Ext.Viewport.setMasked(false);
 
             Ext.get('splashLoader').destroy();
-            Ext.get('rwf-body').addCls('greyBg');
+            Ext.get('body-canvas').addCls('greyBg');
 
             if (response.status == 'connected') {
                 me.onLogin();
