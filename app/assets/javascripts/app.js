@@ -7,6 +7,11 @@
 //    }
 //});
 
+Ext.application({
+   name: 'StartStop',
+   icon: '/assets/icon.png'
+});
+
 /*Ext.application({
     name: 'JWF',
 
