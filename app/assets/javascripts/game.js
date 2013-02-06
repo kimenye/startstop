@@ -1,10 +1,19 @@
+Ext.Loader.setConfig({ enabled: false });
 Ext.application({
     name: 'StartStop',
     icon: '/assets/icon.png',
 
     models: [
         'Player'
-    ]
+    ],
+
+    config: {
+        enableLoader: false
+    },
+
+    launch: function() {
+        console.log("Application has launched");
+    }
 });
 
 /*Ext.application({
@@ -16,7 +25,7 @@ Ext.application({
     models: [
         'Run'
     ],
-
+                                                                                                                              /ap
     views: [
         'Main',
         'Form',
