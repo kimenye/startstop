@@ -10,38 +10,5 @@
  *
  *= require_self
  *= require sencha-touch
+ *= require mobile_game
 */
-
-.hidden {
-  display: none;
-}
-
-body {
-  background: -webkit-gradient(radial, 50% 40%, 20, 50% 40%, 350, from(#6983b2), to(#30508b));
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-}
-
-
-#splashLoader {
-  background: url(/assets/splashimg.png) no-repeat center 25%;
-  background-size: contain;
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-}
-
-#loading {
-  color: #9eb2cd;
-  font-size: 120%;
-  position: absolute;
-  width: 110px;
-  left: 50%;
-  margin: 75% 0 0 -30px;
-  .x-loading-spinner {
-    font-size: 160%;
-    margin: -27px 0 0 -45px;
-  }
-}
