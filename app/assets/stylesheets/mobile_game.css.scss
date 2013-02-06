@@ -48,3 +48,23 @@ body {
 .teaser {
   text-align: center;
 }
+
+.signoutBtn{
+  background:url(/assets/logout.png) no-repeat center center;
+  background-size:16px 18px;
+  width:17px !important;
+  height:20px !important
+}
+
+.showFormBtn {
+  background: url(/assets/add.png) no-repeat center center;
+  background-size: 15px 15px;
+  width: 17px !important;
+  height: 20px !important
+}
+
+.homeToolbar.x-toolbar-dark {
+  background: -webkit-gradient(linear, left top, left bottom, from(
+    #738aba), to(
+    #2c4987));
+}

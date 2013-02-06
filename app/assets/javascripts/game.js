@@ -11,6 +11,12 @@ Ext.application({
         'Facebook'
     ],
 
+    views: [
+        'Login',
+        'NoFriends',
+        'Main'
+    ],
+
     config: {
         enableLoader: false
     },
