@@ -24,3 +24,5 @@ gem "better_errors", ">= 0.3.2", :group => :development
 gem "binding_of_caller", ">= 0.6.8", :group => :development
 gem "mobile-fu"
 gem "js-beautify", :group => :development
+gem "pry", :group => :development
+gem "pry-nav", :group => :development

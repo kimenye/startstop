@@ -17,6 +17,10 @@ Ext.application({
         'Main'
     ],
 
+    stores: [
+        'Players'
+    ],
+
     config: {
         enableLoader: false
     },

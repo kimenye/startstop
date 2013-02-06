@@ -112,7 +112,7 @@ Ext.define('StartStop.controller.Facebook', {
                     });
                 }
                 Ext.Viewport.setActiveItem(me.main);
-//                Ext.getStore('Runs').load();
+                Ext.getStore('Players').load();
             }
         });
     },
