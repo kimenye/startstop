@@ -68,3 +68,9 @@ body {
     #738aba), to(
     #2c4987));
 }
+
+.homeToolbar.x-toolbar-dark .x-inner {
+  margin-left: -3px;
+  background: url(/assets/header.png) no-repeat 0 50%;
+  background-size: 200px 32px
+}
