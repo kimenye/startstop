@@ -6,8 +6,10 @@ Ext.define('StartStop.model.Player', {
 
     config: {
         fields: [
-            { name: 'profileId', type: 'string' },
-            { name: 'name',      type: 'string' }
+            { name: 'fb_id', type: 'string' },
+            { name: 'name',  type: 'string' },
+            { name: 'email',  type: 'string' },
+            { name: 'location',  type: 'string' }
         ]
     }
 });

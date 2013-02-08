@@ -111,10 +111,64 @@ Ext.define('StartStop.controller.Facebook', {
                         id: 'main'
                     });
                 }
-                Ext.Viewport.setActiveItem(me.main);
-                Ext.getStore('Players').load();
+                me.loadUser();
             }
         });
+    },
+
+    initUser:  function(response,email, config) {
+        var me = this;
+        console.log("Email: ", email, config);
+        if (response == "cancel" ||
+            !Ext.data.Validations.email({},email)) {
+
+            Ext.Msg.prompt("Email Address Required!", "We need a valid email address to continue", this.initUser, this);
+        }
+        else {
+            console.log("Prepare to create");
+            var params = {
+                fb_id: StartStop.userData.id,
+                name: StartStop.userData.name,
+                location: StartStop.userData.location.name
+            };
+
+            Ext.Ajax.request({
+                url: "/players",
+                method: "POST",
+                headers: {
+                    "Accept" : "application/json"
+                },
+                params: helpers.railsify_keys('player', params),
+
+                callback: function(rsp, status, obj) {
+                    if (status) {
+                        StartStop.user = $.parseJSON(obj.responseText);
+                        console.log("Created player", StartStop.user);
+                        me.loadMainView();
+                    }
+                }
+            });
+        }
+    },
+
+    loadMainView : function() {
+        Ext.Viewport.setActiveItem(this.main);
+        Ext.getStore('Players').load();
+    },
+
+    loadUser: function() {
+        var me = this;
+        $.getJSON("/players/" + StartStop.userData.id,
+            function (data) {
+                if (data == null) {
+                    Ext.Msg.prompt("Welcome " + StartStop.userData.name, "What is your Email?", me.initUser, me);
+                }
+                else {
+                    StartStop.user = data;
+                    me.loadMainView();
+                }
+            }
+        );
     },
 
     logout: function() {

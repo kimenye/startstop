@@ -14,7 +14,7 @@ class PlayersController < ApplicationController
   # GET /players/1
   # GET /players/1.json
   def show
-    @player = Player.find(params[:id])
+    @player = Player.find_by_fb_id(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -35,7 +35,7 @@ class PlayersController < ApplicationController
 
   # GET /players/1/edit
   def edit
-    @player = Player.find(params[:id])
+    @player = Player.find_by_fb_id(params[:id])
   end
 
   # POST /players

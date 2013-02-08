@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130208104514) do
+ActiveRecord::Schema.define(:version => 20130208121331) do
 
   create_table "players", :force => true do |t|
     t.string   "fb_id"
@@ -22,5 +22,7 @@ ActiveRecord::Schema.define(:version => 20130208104514) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  add_index "players", ["fb_id"], :name => "index_players_on_fb_id", :unique => true
 
 end
