@@ -31,18 +31,7 @@ Ext.define('StartStop.view.Main', {
                     }
                 ]
             },
-            {
-                title: 'Friends',
-                html: '<p>Docking tabs to the bottom will automatically change their style</p>',
-                iconCls: 'friends',
-                cls: 'card'
-            },
-            {
-                title: 'Settings',
-                html: '<p>Docking tabs to the bottom will automatically change their style</p>',
-                iconCls: 'settings',
-                cls: 'card'
-            }
+            { xtype: 'friendscard' }
         ]
     },
 

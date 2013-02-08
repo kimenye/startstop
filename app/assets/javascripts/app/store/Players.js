@@ -13,6 +13,16 @@ Ext.define('StartStop.store.Players', {
             headers: {
                 'Accept' : 'application/json'
             }
-        }
+        },
+
+
+        emptyText: 'Invite some of your friends!',
+
+        grouper: function(record) {
+            return record.get("name")[0];
+        },
+
+        itemTpl: '{name}'
+
     }
 });
