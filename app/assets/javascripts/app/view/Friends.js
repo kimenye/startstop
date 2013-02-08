@@ -3,16 +3,7 @@ Ext.define('StartStop.view.Friends', {
     xtype: 'friendscard',
     config: {
         store: 'Players',
-//        store: {
-//            fields: ['name'],
-//            data: [
-//                {name: 'Cowper'},
-//                {name: 'Everett'},
-//                {name: 'University'},
-//                {name: 'Forest'}
-//            ]
-//        },
-
+        mode: 'MULTI',
         itemTpl: '{name}',
         iconCls: 'friends',
         title: 'Friends',

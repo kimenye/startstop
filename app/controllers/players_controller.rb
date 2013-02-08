@@ -2,7 +2,7 @@ class PlayersController < ApplicationController
   # GET /players
   # GET /players.json
   def index
-    @players = Player.all
+    @players = Player.find(:all, :conditions => ["fb_id != ?", session[:current_player].fb_id])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,6 +14,10 @@ class PlayersController < ApplicationController
   # GET /players/1.json
   def show
     @player = Player.find_by_fb_id(params[:id])
+
+    if !@player.nil?
+      session[:current_player] = @player
+    end
 
     respond_to do |format|
       format.html # show.html.erb
@@ -44,6 +48,7 @@ class PlayersController < ApplicationController
 
     respond_to do |format|
       if @player.save
+        session[:current_player] = @player
         format.html { redirect_to @player, notice: 'Player was successfully created.' }
         format.json { render json: @player, status: :created, location: @player }
       else
