@@ -2,16 +2,20 @@
  * This screen is displayed once a user has logged in to Facebook and authorized our app.
  */
 Ext.define('StartStop.view.Main', {
-    extend: 'Ext.Container',
-    requires: [
-//        'StartStop.view.run.List',
-//        'StartStop.view.NoFriends'
-    ],
-
+    extend: 'Ext.tab.Panel',
     config: {
-        layout: 'card',
-
-        items: [
+        activeTab: 0,
+        tabBar: {
+            layout: {
+                pack: 'center',
+                align: 'center'
+            },
+            docked: 'bottom'
+        },
+        defaults: {
+            scrollable: true
+        },
+        items : [
             {
                 docked: 'top',
                 xtype: 'toolbar',
@@ -32,6 +36,12 @@ Ext.define('StartStop.view.Main', {
                         id: 'signout'
                     }
                 ]
+            },
+            {
+                title: 'Friends',
+                html: '<p>Docking tabs to the bottom will automatically change their style</p>',
+                iconCls: 'user',
+                cls: 'card'
             }
         ]
     },
