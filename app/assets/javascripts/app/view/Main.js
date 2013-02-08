@@ -26,12 +26,6 @@ Ext.define('StartStop.view.Main', {
                     {
                         xtype: 'button',
                         cls: 'fbButton',
-                        iconCls: 'showFormBtn',
-                        id: 'showFormButton'
-                    },
-                    {
-                        xtype: 'button',
-                        cls: 'fbButton',
                         iconCls: 'signoutBtn',
                         id: 'signout'
                     }
@@ -40,7 +34,13 @@ Ext.define('StartStop.view.Main', {
             {
                 title: 'Friends',
                 html: '<p>Docking tabs to the bottom will automatically change their style</p>',
-                iconCls: 'user',
+                iconCls: 'friends',
+                cls: 'card'
+            },
+            {
+                title: 'Settings',
+                html: '<p>Docking tabs to the bottom will automatically change their style</p>',
+                iconCls: 'settings',
                 cls: 'card'
             }
         ]

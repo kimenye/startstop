@@ -26,3 +26,4 @@ gem "mobile-fu"
 gem "js-beautify", :group => :development
 gem "pry", :group => :development
 gem "pry-nav", :group => :development
+gem "sqlite3", :group => :development
