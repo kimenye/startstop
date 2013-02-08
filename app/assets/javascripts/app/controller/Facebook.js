@@ -129,7 +129,7 @@ Ext.define('StartStop.controller.Facebook', {
             var params = {
                 fb_id: StartStop.userData.id,
                 name: StartStop.userData.name,
-                location: StartStop.userData.location.name
+                location: StartStop.userData.location != null ?  StartStop.userData.location.name : ""
             };
 
             Ext.Ajax.request({
