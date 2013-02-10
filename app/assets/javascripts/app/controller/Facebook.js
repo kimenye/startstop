@@ -106,6 +106,8 @@ Ext.define('StartStop.controller.Facebook', {
                 });
             } else {
                 StartStop.userData = response;
+                StartStop.user_token = FB.getAuthResponse()['accessToken'];
+
                 if (!me.main) {
                     me.main = Ext.create('StartStop.view.Main', {
                         id: 'main'
@@ -125,7 +127,7 @@ Ext.define('StartStop.controller.Facebook', {
             Ext.Msg.prompt("Email Address Required!", "We need a valid email address to continue", this.initUser, this);
         }
         else {
-            console.log("Prepare to create");
+//            console.log("Prepare to create");
             var params = {
                 fb_id: StartStop.userData.id,
                 name: StartStop.userData.name,
@@ -162,7 +164,7 @@ Ext.define('StartStop.controller.Facebook', {
 
     loadUser: function() {
         var me = this;
-        $.getJSON("/players/" + StartStop.userData.id,
+        $.getJSON("/players/" + StartStop.userData.id + "?token=" + StartStop.user_token,
             function (data) {
                 if (data == null) {
                     Ext.Msg.prompt("Welcome " + StartStop.userData.name, "What is your Email?", me.initUser, me);

@@ -19,6 +19,7 @@ Ext.define('StartStop.view.Friends', {
                 flex: 1,
                 xtype: 'list',
                 store: 'Players',
+                emptyText: '<p class="empty">No friends currently playing :-(</p>',
                 items: [
                     {
                         xtype: 'listitemheader',

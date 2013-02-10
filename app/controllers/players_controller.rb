@@ -2,7 +2,13 @@ class PlayersController < ApplicationController
   # GET /players
   # GET /players.json
   def index
-    @players = Player.find(:all, :conditions => ["fb_id != ?", session[:current_player].fb_id])
+    @players = []
+    @graph = Koala::Facebook::API.new(session[:access_token])
+    friends = @graph.fql_query("SELECT uid FROM user WHERE uid in (SELECT uid2 FROM friend WHERE uid1 = me()) AND is_app_user = 1")
+
+    @players = friends.collect { |f| Player.find_by_fb_id("#{f['uid']}") }
+    @players.reject! { |p| p.nil? }
+
 
     respond_to do |format|
       format.html # index.html.erb
@@ -15,6 +21,7 @@ class PlayersController < ApplicationController
   def show
     @player = Player.find_by_fb_id(params[:id])
 
+    session[:access_token] = params[:token]
     if !@player.nil?
       session[:current_player] = @player
     end
