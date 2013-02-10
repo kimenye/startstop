@@ -87,3 +87,42 @@ body {
   height: 45px;
   background-size: 47px auto;
 }
+
+.friendInfo {
+  background: #fff
+}
+
+.friendInfo .header {
+  background-image: none;
+  background-color: #eeeeee;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(3%, #fbfbfb), color-stop(100%, #e1e1e1));
+  background-image: -webkit-linear-gradient(top, #ffffff, #fbfbfb 3%, #e1e1e1);
+  background-image: linear-gradient(top, #ffffff, #fbfbfb 3%, #e1e1e1);
+  border-bottom: 1px solid #ccc;
+  border-top: 1px solid #ddd;
+  padding: 1em 0.8em;
+  min-height: 100px;
+}
+
+.friendInfo h2 {
+  font-weight: bold;
+}
+
+.friendInfo .avatar {
+  background-position: center center;
+  -webkit-border-radius: 0.5em;
+  float: left;
+  border: 0;
+  border-radius: 0.5em;
+  margin-right: 10px;
+  width: 60px;
+  height: 60px;
+  background-size: 62px auto
+}
+
+.friendInfo p {
+  color: #333;
+  line-height: 1.5em;
+  padding: 0.4em 1.2em;
+  font-size: 0.8em
+}
