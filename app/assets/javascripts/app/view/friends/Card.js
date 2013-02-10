@@ -12,8 +12,6 @@ Ext.define('StartStop.view.Friends', {
 
         items: [
             {
-//                flex: 1,
-//                scrollable: 'vertical',
                 xtype: 'friendInfo',
                 data: StartStop.user
             },
@@ -29,7 +27,10 @@ Ext.define('StartStop.view.Friends', {
                     }
                 ],
                 itemTpl: [
-                    '{name}'
+                    '<div class="header friend">',
+                        '<div class="avatar" style="background-image: url(https://graph.facebook.com/{fb_id}/picture?type=square);"></div>',
+                        '<h2>{name}</h2>',
+                    '</div>'
                 ],
                 plugins: [
                 {
