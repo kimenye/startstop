@@ -77,17 +77,6 @@ body {
   -webkit-mask-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAFMklEQVRoBe2ZW6hVRRjHz/aWWh41u5iXPIqXyAI79ZBJGkdBCBFfxLKHRKEXe7GH4BBBZS9hGUYPJT6EKUEQJYZyHkREHyoIM/FCkoLVQyFe0sqyPP3+mzWL2Wuv28zam3NcZw38mW99811nZs18a+9af39/x1Bqw4ZSssq1SrjsK16tcLXCJZuBakuXbEGb0qlWuGlKcjBqtVonWAcOgCug38JN6CNgM3gwh7n2iqi0LAKiWwQOA9WoWbiIzHowpojPIrpFk11I8GdyJGpPxH/I94JakcB9db0TJuAu4JqsSfwPdFf6Bl1Er8ih9TxBzwY+bSxKm3inh/soF9HxSphAx+N0dRHH6D4MFhe04azulTBeHgGTnL01KmjSnmxktf/JN+E7CW1UwfDke0xBG87qvgnr8GlFa5Wd3LH4JpzbwWATvCUT1ukOaj6TecslTJ4jSFSne9eQSJgkR4JngEpa5+a7wl7byTm6eIVxsNeAnvjhdK5vwj9h9q9007lGfU7px7CsO3we21sVm1PzTfhXvNxw8tQsfA3W8WZ2JmdFIDGTfk6mdETAK2GK9/PY+SViy/VRHxAnXZRYUcWrLzS1ycC5lvdKuO6uo+Mz+psB7dMdY+K+d1Sch/y0QEfnSDeToEMsdyuS8Ed4+Tm3p0ZBfRNva2TlenoaqU5L8gnoe63nTNI7YVbnEtY/z/QQL/At7EPxQ6ncZYzaNbwSNiueqmgGvRMODHxAf9kYc+h3MmFOpzxbdxb274/4UPL6csvfcFzkV4/b8PQW0PWSF8eQvVt+aaPB7UB20qDqagPQ5Eb97IV3F0jTN2Od9d+VEPZuwcx/ioFHcxi5jswqku2TLLr6EeA1oHv1X5DUNDYXzAbRoudPeF+Dv2PGYNWbdDS5fd6ra+8MDOkwiZv96GrsRG6U0YXWAfQc+AFEZVv9vBUf870SRtHM2Hzol8CXQIVIVpDnkFkORpik1dOmg81Aq5Vlw2Vc1+ZpoF9WRtZ92Y6zaJR0yHWBjeAroG2kK8YlCCX1Hphm++NZk7gEHAYu9pJkdYu8DyY3+LEf0mgUHwK94DxIcuLC19X0LBhm++VZ23w7uAhc7NmyR9Fdbds1dOaWRlGJ7gAqJW2jraJ3YXeBCcj08HTHfuHo8wrym0D9FjC27D4xYZT0A9vLQO9Aq5JLsqND6wU7MNG0qWA/SNKz+VeR643aiD43JYzSPUB33ndA76httJ203u2PwTgTJLSuklMgj1+dJVuMblIfJoywqpa14AzQ6ZbHSatl9O6F7zT0IqA7OK+fb5CdmJSs+Dp1VQCoUnkd7AZxlzvstjdN8h6CUm+arrB6jIaR0T/AuK7K1DaB0UMg7yy2S06vT7e9OjyfiIlLch+CfTFjiu0V0HDPR2w618LtSliHY/i/MXQ3uABsf9reqgHuACpW9gB7XPRBMMVO0qYZ6/gHRJUG4vld4gj/M4Z+NRKb7v+VwH7HdWeruNCXl4n5BvRCO0mbZiwUNAoD1S81gRGTDtCDVmy6ttKSeJHx3yz5N6HrpaSxaXr4gyLhH4kjLAGhHwdng9hUaj5lAk7qkVkB9KOgFkynfXi92TrwB0XC2pajTWDQbwRxqcKbZPhZPbIzQF+g2xMnz9igSFjvpvk2Hw79CXgHdMYFncZD5z6wHWyNk9MXyttgoJr8/w52EFz9Z9+gJtBKnYB33ScwbKhC6wH7saEtHjYzqyGj7IRLFVOKuagSLsUypiRRrXDK5JRiqFrhUixjShLVCqdMTimG/geI0UIFHuszIAAAAABJRU5ErkJggg==')
 }
 
-.avatar {
-  background-position: center center;
-  border-radius: .5em;
-  -webkit-border-radius: .5em;
-  float: left;
-  border: 0;
-  width: 45px;
-  height: 45px;
-  background-size: 47px auto;
-}
-
 .friendInfo {
   background: #fff
 }
@@ -113,7 +102,7 @@ body {
   -webkit-border-radius: 0.5em;
   float: left;
   border: 0;
-  border-radius: 0.5em;
+  //border-radius: 0.5em;
   margin-right: 10px;
   width: 60px;
   height: 60px;

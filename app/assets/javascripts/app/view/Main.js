@@ -13,7 +13,7 @@ Ext.define('StartStop.view.Main', {
             docked: 'bottom'
         },
         defaults: {
-            scrollable: true
+            scrollable: false
         },
         items : [
             {

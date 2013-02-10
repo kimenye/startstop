@@ -1,5 +1,4 @@
 Ext.define('StartStop.view.Friends', {
-//    extend: 'Ext.dataview.List',
     extend: 'Ext.Container',
     xtype: 'friendsContainer',
     id: 'friendsContainer',
@@ -7,17 +6,36 @@ Ext.define('StartStop.view.Friends', {
         tab: {
             title: 'Friends',
             iconCls: 'friends'
-//            action: 'speakersTab'
         },
 
         layout: 'vbox',
 
         items: [
             {
-                flex: 1,
-                scrollable: 'vertical',
+//                flex: 1,
+//                scrollable: 'vertical',
                 xtype: 'friendInfo',
                 data: StartStop.user
+            },
+            {
+                flex: 1,
+                xtype: 'list',
+                store: 'Players',
+                items: [
+                    {
+                        xtype: 'listitemheader',
+                        cls: 'dark',
+                        html: 'Your Friends playing this game'
+                    }
+                ],
+                itemTpl: [
+                    '{name}'
+                ],
+                plugins: [
+                {
+                   xclass: 'Ext.plugin.PullRefresh',
+                    pullRefreshText: 'Pull down for more Friends!'
+                }]
             }
         ]
 
