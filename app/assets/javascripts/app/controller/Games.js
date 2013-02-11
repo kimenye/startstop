@@ -84,6 +84,11 @@ Ext.define('StartStop.controller.Games', {
 //        console.log("clicked the show form with selections: ", this.selectedItems.length);
         if (this.selectedItems.length < 1) {
             Ext.Msg.alert("Pick a Friend(s) to play with");
+        } else {
+            Ext.getCmp('main').setMasked({
+                xtype: 'loadmask',
+                message: 'Preparing game...'
+            });
         }
     },
 
