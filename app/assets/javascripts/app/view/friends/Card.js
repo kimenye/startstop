@@ -7,7 +7,6 @@ Ext.define('StartStop.view.Friends', {
             title: 'Friends',
             iconCls: 'friends'
         },
-
         layout: 'vbox',
 
         items: [
@@ -38,16 +37,27 @@ Ext.define('StartStop.view.Friends', {
                 {
                    xclass: 'Ext.plugin.PullRefresh',
                     pullRefreshText: 'Pull down for more Friends!'
-                }]
+                }],
+                listeners: {
+                    select: function(view, record) {
+                        SHOTGUN.fire('select-friend', [record]);
+                    },
+
+                    deselect: function(view, record) {
+                        SHOTGUN.fire('de-select-friend', [record]);
+                    }
+                }
             }
         ]
-//        listeners: {
-//            select: function(view, record) {
-////                Ext.Msg.alert('Selected!', 'You selected ' + record.get('name'));
-//            }
-//        }
     },
-
+    isActive : true,
     initialize: function() {
+        var self = this;
+        SHOTGUN.listen("tab-changed", function(title) {
+            if (title == "Friends")
+                self.isActive = true;
+            else
+                self.isActive = false;
+        });
     }
 });

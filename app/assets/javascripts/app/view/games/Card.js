@@ -7,5 +7,8 @@ Ext.define('StartStop.view.Games', {
             title: 'Games',
             iconCls: 'games'
         }
+    },
+    initialize: function() {
+        var self = this;
     }
 });

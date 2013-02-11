@@ -15,6 +15,11 @@ Ext.define('StartStop.view.Main', {
         defaults: {
             scrollable: false
         },
+        listeners: {
+            activeitemchange: function (tabPanel, tab, oldTab) {
+                SHOTGUN.fire("tab-changed", [tab.config.tab.title]);
+            }
+        },
         items : [
             {
                 docked: 'top',

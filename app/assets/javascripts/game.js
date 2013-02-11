@@ -8,7 +8,8 @@ Ext.application({
     ],
 
     controllers: [
-        'Facebook'
+        'Facebook',
+        'Games'
     ],
 
     views: [
