@@ -173,11 +173,20 @@ Ext.define('StartStop.controller.Facebook', {
                 console.log("Connected!", message);
             }, // OnConnect Callback
             callback : function(message) {
-                console.log("Received message: ", message);
+                if (message.type == "invite" && message.to == StartStop.user.fb_id) {
+//                    console.log("this invite is for me", message);
+                }
             },  // Received Message Callback
             presence : function(message) {
                 SHOTGUN.fire('presence', [message]);
             }
+        });
+
+        SHOTGUN.listen("invite-friend", function(from, to, gameId) {
+            pubnub.publish({
+                channel: "start_stop_channel",
+                message: { from: from, to: to, game: gameId, type: "invite" }
+            });
         });
     },
 

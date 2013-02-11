@@ -77,6 +77,10 @@ Ext.define('StartStop.controller.Games', {
                     if (status) {
                         var game = $.parseJSON(obj.responseText);
 
+                        _.each(users, function(user) {
+                            if (user != StartStop.user.fb_id)
+                                SHOTGUN.fire("invite-friend", [StartStop.user.fb_id, user, game.id]);
+                        });
                     }
                 }
             });
