@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require underscore.min
+//= require shotgun
 //= require sencha-touch-all
 //= require game
 //= require app/classes

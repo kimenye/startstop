@@ -26,6 +26,12 @@ Ext.define('StartStop.view.Main', {
                     {
                         xtype: 'button',
                         cls: 'fbButton',
+                        iconCls: 'showFormBtn',
+                        id: 'showFormButton'
+                    },
+                    {
+                        xtype: 'button',
+                        cls: 'fbButton',
                         iconCls: 'signoutBtn',
                         id: 'signout'
                     }
@@ -45,5 +51,13 @@ Ext.define('StartStop.view.Main', {
                 meta.fireEvent('tap', meta, e);
             });
         }
+
+        var self = this;
+
+        SHOTGUN.listen('presence', function(message) {
+            var tabBar = self.getTabBar();
+            var tab = tabBar.getItems().getAt(0);
+            tab.setBadgeText(message.occupancy);
+        });
     }
 });

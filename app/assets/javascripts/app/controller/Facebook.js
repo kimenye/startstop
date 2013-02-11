@@ -154,12 +154,31 @@ Ext.define('StartStop.controller.Facebook', {
     },
 
     loadMainView : function() {
+        var self = this;
         Ext.Viewport.setActiveItem(this.main);
         Ext.getStore('Players').load();
 
         //TODO: Make this more robust
         var detailPanel = panelsArray = Ext.ComponentQuery.query('#friendsContainer > panel')[0];
         detailPanel.setData(StartStop.user);
+
+        var pubnub = PUBNUB.init({
+            publish_key   : 'pub-c-d32051ce-6533-4d15-8b8e-6ea0f44ffc77',
+            subscribe_key : 'sub-c-ee3a5cbe-742c-11e2-8b02-12313f022c90'
+        });
+
+        pubnub.subscribe({
+            channel  : "start_stop_channel", // Channel Name
+            connect  : function(message) {
+                console.log("Connected!", message);
+            }, // OnConnect Callback
+            callback : function(message) {
+                console.log("Received message: ", message);
+            },  // Received Message Callback
+            presence : function(message) {
+                SHOTGUN.fire('presence', [message]);
+            }
+        });
     },
 
     loadUser: function() {

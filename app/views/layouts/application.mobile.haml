@@ -9,6 +9,7 @@
     -#%link{:href=> "http://fonts.googleapis.com/css?family=Bowlby+One+SC", :rel=>'stylesheet',:type=>'text/css'}
     = stylesheet_link_tag "mobile", :media => "all"
     = javascript_include_tag "mobile"
+    = javascript_include_tag "http://cdn.pubnub.com/pubnub-3.4.min.js"
     = csrf_meta_tags
     = yield(:head)
     %link{:href => "assets/icon.png", :rel => "apple-touch-icon"}
