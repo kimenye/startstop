@@ -37,7 +37,8 @@ Ext.define('StartStop.view.Main', {
                     }
                 ]
             },
-            { xtype: 'friendsContainer' }
+            { xtype: 'friendsContainer' },
+            { xtype: 'gamesContainer' }
         ]
     },
 
