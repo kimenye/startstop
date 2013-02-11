@@ -31,8 +31,8 @@ Ext.define('StartStop.view.Main', {
                     {
                         xtype: 'button',
                         cls: 'fbButton',
-                        iconCls: 'showFormBtn',
-                        id: 'showFormButton'
+                        iconCls: 'startGameBtn',
+                        id: 'startGameButton'
                     },
                     {
                         xtype: 'button',
