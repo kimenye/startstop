@@ -12,6 +12,6 @@ Ext.define('StartStop.view.games.List', {
         store: 'Games',
         title: 'Your Games',
         emptyText: '<p class="empty">You are not currently playing any games:-(</p>',
-        itemTpl: ['{status}' ]
+        itemTpl: ['{opponents}' ]
     }
 });

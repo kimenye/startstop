@@ -8,7 +8,7 @@ Ext.define('StartStop.model.Game', {
         fields: [
             'id',
             'status',
-            'participantsIds'
+            'opponents'
         ]
     }
 });

@@ -7,19 +7,15 @@ class GamesController < ApplicationController
       @games = Game.joins(:game_participants).where("game_participants.player_id" => params[:player_id])
     end
 
-    #response = []
-    #@games.each do |game|
-    #  response << {
-    #      :status => game.status,
-    #      :participants => game.game_participants
-    #  }
-    #end
-
-    #binding.pry
-
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @games }
+      #format.json { render json: @games.to_json({:include => [
+      #    :game_participants => { :only => [:status], :methods => [:player_name]}
+      #    ]
+      #  })
+      #}
+
+      format.json { render json: @games.to_json({:methods => [:opponents]}) }
     end
   end
 
