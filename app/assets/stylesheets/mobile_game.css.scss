@@ -126,3 +126,14 @@ p.empty {
   text-align: center;
   padding-top: 20px;
 }
+
+.x-title .x-innerhtml {
+  font-size: 80%;
+  font-weight: normal;
+}
+
+.x-navigationview {
+  .x-toolbar {
+    display: none;
+  }
+}

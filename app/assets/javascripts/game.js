@@ -15,7 +15,8 @@ Ext.application({
 
     views: [
         'Login',
-        'Main'
+        'Main',
+        'games.List'
     ],
 
     stores: [
