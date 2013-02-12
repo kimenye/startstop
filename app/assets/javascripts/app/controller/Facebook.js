@@ -157,6 +157,8 @@ Ext.define('StartStop.controller.Facebook', {
         var self = this;
         Ext.Viewport.setActiveItem(this.main);
         Ext.getStore('Players').load();
+        Ext.getStore('Games').getProxy().setUrl("/games?player_id=" + StartStop.user.id);
+        Ext.getStore('Games').load();
 
         //TODO: Make this more robust
         var detailPanel = panelsArray = Ext.ComponentQuery.query('#friendsContainer > panel')[0];

@@ -4,7 +4,8 @@ Ext.application({
     icon: '/assets/icon.png',
 
     models: [
-        'Player'
+        'Player',
+        'Game'
     ],
 
     controllers: [
@@ -18,7 +19,8 @@ Ext.application({
     ],
 
     stores: [
-        'Players'
+        'Players',
+        'Games'
     ],
 
     config: {
