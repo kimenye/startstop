@@ -3,7 +3,6 @@ class CreateGameParticipants < ActiveRecord::Migration
     create_table :game_participants, :id => false do |t|
       t.column :game_id, :integer
       t.column :player_id, :integer
-      t.column :status, :string
     end
 
     add_index :game_participants, [:player_id, :game_id]

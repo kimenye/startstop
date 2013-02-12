@@ -1,5 +1,7 @@
 class Game < ActiveRecord::Base
   attr_accessible :status
+
+  has_many :game_participants,:dependent => :delete_all
 end
 
 class GameParticipant < ActiveRecord::Base

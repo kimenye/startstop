@@ -81,7 +81,21 @@ class GamesController < ApplicationController
     end
   end
 
-  def add_participant
+  def add_participants
     @game = Game.find(params[:id])
+
+    if !params[:participants].nil? && !params[:participants].empty?
+      params[:participants].each do |p|
+        is_current = p[1] == session[:current_player].fb_id
+        player = Player.find_by_fb_id(p[1])
+        @game.game_participants.build(:player_id => player.id, :status => is_current ? "Accepted" : "Pending")
+        @game.save!
+      end
+    end
+
+    respond_to do |format|
+      format.html { redirect_to games_url }
+      format.json { head :no_content }
+    end
   end
 end

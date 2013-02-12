@@ -30,10 +30,10 @@ Ext.define('StartStop.controller.Games', {
 
         SHOTGUN.listen("tab-changed", function(title) {
             if (title == "Games") {
-                Ext.getCmp('startGameBtn').disable();
+                Ext.getCmp('startGameButton').disable();
             }
             else {
-                Ext.getCmp('startGameBtn').enable();
+                Ext.getCmp('startGameButton').enable();
             }
         });
     },
@@ -62,12 +62,20 @@ Ext.define('StartStop.controller.Games', {
             _.each(this.selectedUsers, function(user) {
                 users.push(user.data.fb_id);
             });
+
+            var usr_string = "";
+            _.each(users, function(user) {
+                usr_string += user + ","
+            });
+
             var params = {
                 status: "pending"
             };
 
+            var token = document.getElementsByName("csrf-token")[0].getAttribute("content");
+
             Ext.Ajax.request({
-                url: "/games",
+                url: "/games?authenticity_token=" + token,
                 method: "POST",
                 headers: {
                     "Accept" : "application/json"
@@ -80,6 +88,20 @@ Ext.define('StartStop.controller.Games', {
                         _.each(users, function(user) {
                             if (user != StartStop.user.fb_id)
                                 SHOTGUN.fire("invite-friend", [StartStop.user.fb_id, user, game.id]);
+                        });
+
+                        Ext.Ajax.request({
+                            url: "/games/" + game.id + "/participants?authenticity_token=" + token,
+                            method: "POST",
+                            headers: {
+                                "Accept" : "application/json"
+                            },
+                            params: helpers.railsify_keys("participants", users),
+                            callback: function(rsp, status, obj) {
+                                if (status) {
+                                    Ext.getCmp('main').unmask();
+                                }
+                            }
                         });
                     }
                 }
