@@ -169,3 +169,28 @@ p.empty {
   overflow: hidden;
   text-overflow: ellipsis
 }
+
+.messages h2 {
+  font-weight: bold;
+  padding-bottom: 3px
+}
+
+.messages img {
+  border-radius: 5px;
+  float: left
+}
+
+.messages .msg {
+  font-size: 70%;
+  margin-left: 60px;
+  color: #333;
+  min-height: 50px
+}
+
+.messages .x-list-item {
+  border-top: 1px solid white
+}
+
+.messages .posted {
+  float: right
+}

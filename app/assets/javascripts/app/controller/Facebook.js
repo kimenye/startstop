@@ -176,7 +176,7 @@ Ext.define('StartStop.controller.Facebook', {
             }, // OnConnect Callback
             callback : function(message) {
                 if (message.type == "invite" && message.to == StartStop.user.fb_id) {
-                    console.log("this invite is for me", message);
+                    SHOTGUN.fire("invite-received", [message])
                 }
             },  // Received Message Callback
             presence : function(message) {
@@ -184,11 +184,25 @@ Ext.define('StartStop.controller.Facebook', {
             }
         });
 
-        SHOTGUN.listen("invite-friend", function(from, to, gameId) {
+        SHOTGUN.listen("invite-friend", function(from, to, gameId, name) {
             pubnub.publish({
                 channel: "start_stop_channel",
-                message: { from: from, to: to, game: gameId, type: "invite" }
+                message: { from: from, to: to, game: gameId, type: "invite", sender: name }
             });
+        });
+
+        SHOTGUN.listen("invite-received", function(message) {
+            Ext.getStore('Messages').add({ status: "unread", from: message.from, sender: message.sender, message: " wants to play Start / Stop with you.", sent_at: new Date() });
+            var main = Ext.ComponentQuery.query('mainTab')[0]
+            var tabBar = main.getTabBar();
+            var tab = tabBar.getItems().getAt(2);
+
+            var badgeText = tab.getBadgeText();
+            if (badgeText == null)
+                badgeText = 0;
+
+            badgeText++;
+            tab.setBadgeText(badgeText);
         });
     },
 

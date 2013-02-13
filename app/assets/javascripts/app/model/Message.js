@@ -6,6 +6,7 @@ Ext.define('StartStop.model.Message', {
             'id',
             'status',
             'from',
+            'sender',
             'message',
             'sent_at'
         ]

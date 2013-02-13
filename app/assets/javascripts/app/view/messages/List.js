@@ -11,16 +11,18 @@ Ext.define('StartStop.view.messages.List', {
         store: 'Messages',
         title: 'Your Messages',
         grouped: true,
+        cls: 'messages',
         emptyText: '<p class="empty">You have not received any messages yet:-(</p>',
-        onItemDisclosure: function(record, btn, index) {
-//            Ext.Msg.alert('Tap', 'Disclose for more info', Ext.emptyFn);
-        },
-        itemTpl: [
-            '<div class="game"><div class="title">{[this.preprocess_opponents(values.opponents)]}</div><div class="room">{[this.posted(values.created_at)]}</div></div>',
+        itemTpl: Ext.create('Ext.XTemplate',
+            '<img src="https://graph.facebook.com/{from}/picture?type=square" />',
+            '<div class="msg">',
+                '<span class="posted">{[this.posted(values.sent_at)]}</span>',
+                '<h2>{sender}</h2>',
+            '<p>{message}</p>',
+            '</div>',
             {
                 posted: helpers.time_ago
             }
-
-        ]
+        )
     }
 });

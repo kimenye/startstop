@@ -87,7 +87,7 @@ Ext.define('StartStop.controller.Games', {
 
                         _.each(users, function(user) {
                             if (user != StartStop.user.fb_id)
-                                SHOTGUN.fire("invite-friend", [StartStop.user.fb_id, user, game.id]);
+                                SHOTGUN.fire("invite-friend", [StartStop.user.fb_id, user, game.id, StartStop.user.name]);
                         });
 
                         Ext.Ajax.request({
