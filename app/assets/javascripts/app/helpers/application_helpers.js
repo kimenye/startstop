@@ -27,3 +27,7 @@ var ApplicationHelpers = {
 
 // alias helpers to ApplicationHelpers for easier access. or don't.
 var helpers = ApplicationHelpers;
+
+String.prototype.capitalize = function() {
+    return this.charAt(0).toUpperCase() + this.slice(1);
+}

@@ -11,6 +11,7 @@ Ext.define('StartStop.view.games.List', {
     config: {
         store: 'Games',
         title: 'Your Games',
+        grouped: true,
         emptyText: '<p class="empty">You are not currently playing any games:-(</p>',
         itemTpl: [
             '<div class="game"><div class="title">{[this.preprocess_opponents(values.opponents)]}</div><div class="room">{[this.posted(values.created_at)]}</div></div>',

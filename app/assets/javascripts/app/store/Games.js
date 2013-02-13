@@ -7,6 +7,13 @@ Ext.define('StartStop.store.Games', {
     config: {
         model: 'StartStop.model.Game',
 
+        grouper: {
+            sortProperty: 'status',
+            groupFn: function(record) {
+                return record.get('status').capitalize();
+            }
+        },
+
         proxy: {
             type: 'ajax',
             headers: {
