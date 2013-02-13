@@ -42,6 +42,7 @@ Ext.define('StartStop.view.messages.List', {
             callback: function(rsp, status, obj) {
                 if (status) {
                     this.message.set('status', 'Read');
+                    SHOTGUN.fire("respond-invite", [StartStop.user.fb_id, this.message.get('from'), this.message.get('game')])
                 }
             },
             scope: scope

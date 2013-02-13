@@ -174,8 +174,12 @@ Ext.define('StartStop.controller.Facebook', {
                 console.log("Connected!", message);
             }, // OnConnect Callback
             callback : function(message) {
+//                console.log("Message: ", message);
                 if (message.type == "invite" && message.to == StartStop.user.fb_id) {
-                    SHOTGUN.fire("invite-received", [message])
+                    SHOTGUN.fire("invite-received", [message]);
+                }
+                else if (message.type == "response" && message.to == StartStop.user.fb_id) {
+                    SHOTGUN.fire("invite-responded", [message]);
                 }
             },  // Received Message Callback
             presence : function(message) {
@@ -188,6 +192,18 @@ Ext.define('StartStop.controller.Facebook', {
                 channel: "start_stop_channel",
                 message: { from: from, to: to, game: gameId, type: "invite", sender: name }
             });
+        });
+
+        SHOTGUN.listen("respond-invite", function(from, to, gameId) {
+            pubnub.publish({
+                channel: "start_stop_channel",
+                message: { from: from, to: to, game: gameId, type: "response"}
+            });
+        });
+
+        SHOTGUN.listen("invite-responded", function(message) {
+            debugger;
+            Ext.getStore("Games").load();
         });
 
         SHOTGUN.listen("invite-received", function(message) {
