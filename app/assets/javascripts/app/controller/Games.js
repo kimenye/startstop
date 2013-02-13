@@ -99,6 +99,8 @@ Ext.define('StartStop.controller.Games', {
                             params: helpers.railsify_keys("participants", users),
                             callback: function(rsp, status, obj) {
                                 if (status) {
+                                    Ext.getStore('Games').load();
+                                    Ext.ComponentQuery.query('mainTab')[0].getTabBar().setActiveTab(1);
                                     Ext.getCmp('main').unmask();
                                 }
                             }

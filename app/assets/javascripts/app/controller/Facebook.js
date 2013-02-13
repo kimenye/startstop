@@ -160,8 +160,7 @@ Ext.define('StartStop.controller.Facebook', {
         Ext.getStore('Games').getProxy().setUrl("/games?player_id=" + StartStop.user.id);
         Ext.getStore('Games').load();
 
-        //TODO: Make this more robust
-        var detailPanel = panelsArray = Ext.ComponentQuery.query('#friendsContainer > panel')[0];
+        var detailPanel = Ext.ComponentQuery.query('friendInfo')[0];
         detailPanel.setData(StartStop.user);
 
         var pubnub = PUBNUB.init({
@@ -176,7 +175,7 @@ Ext.define('StartStop.controller.Facebook', {
             }, // OnConnect Callback
             callback : function(message) {
                 if (message.type == "invite" && message.to == StartStop.user.fb_id) {
-//                    console.log("this invite is for me", message);
+                    console.log("this invite is for me", message);
                 }
             },  // Received Message Callback
             presence : function(message) {

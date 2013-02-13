@@ -3,6 +3,7 @@
  */
 Ext.define('StartStop.view.Main', {
     extend: 'Ext.tab.Panel',
+    xtype: 'mainTab',
     config: {
         activeTab: 0,
         tabBar: {
