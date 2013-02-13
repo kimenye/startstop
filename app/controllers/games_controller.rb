@@ -4,7 +4,7 @@ class GamesController < ApplicationController
   def index
     @games = Game.all
     if params.has_key?(:player_id)
-      @games = Game.joins(:game_participants).where("game_participants.player_id" => params[:player_id])
+      @games = Game.order("created_at DESC").joins(:game_participants).where("game_participants.player_id" => params[:player_id])
     end
 
     respond_to do |format|
