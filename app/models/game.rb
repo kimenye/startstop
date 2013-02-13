@@ -6,6 +6,7 @@ class Game < ActiveRecord::Base
   def opponents
     opponents = self.game_participants.map do |p|
       p.player_name
+      p.player_fb_id
     end
     opponents.join(",")
   end
@@ -17,7 +18,11 @@ class GameParticipant < ActiveRecord::Base
   belongs_to :game
   belongs_to :player
 
- def player_name
-   self.player.name
- end
+  def player_fb_id
+    self.player.fb_id
+  end
+
+  def player_name
+     self.player.name
+  end
 end

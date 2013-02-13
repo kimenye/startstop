@@ -148,7 +148,8 @@ p.empty {
   -webkit-box-orient: horizontal;
   box-orient: horizontal;
   -webkit-box-align: center;
-  box-align: center
+  box-align: center;
+  min-height: 50px;
 }
 
 .x-list-item-inner .game .title {
@@ -161,7 +162,7 @@ p.empty {
   white-space: nowrap
 }
 
-.x-list-item-inner .game .room {
+.x-list-item-inner .game .time {
   font-size: 10px !important;
   color: #d40e3f;
   margin-left: .5em;
@@ -175,9 +176,13 @@ p.empty {
   padding-bottom: 3px
 }
 
-.messages img {
+.messages img, .game img {
   border-radius: 5px;
   float: left
+}
+
+.game img {
+  margin-right: 5px;
 }
 
 .messages .msg {
