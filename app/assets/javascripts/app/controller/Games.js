@@ -29,11 +29,11 @@ Ext.define('StartStop.controller.Games', {
         });
 
         SHOTGUN.listen("tab-changed", function(title) {
-            if (title == "Games") {
-                Ext.getCmp('startGameButton').disable();
+            if (title == "Friends") {
+                Ext.getCmp('startGameButton').enable();
             }
             else {
-                Ext.getCmp('startGameButton').enable();
+                Ext.getCmp('startGameButton').disable();
             }
         });
     },

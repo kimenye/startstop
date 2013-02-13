@@ -159,6 +159,7 @@ Ext.define('StartStop.controller.Facebook', {
         Ext.getStore('Players').load();
         Ext.getStore('Games').getProxy().setUrl("/games?player_id=" + StartStop.user.id);
         Ext.getStore('Games').load();
+        Ext.getStore('Messages').load();
 
         var detailPanel = Ext.ComponentQuery.query('friendInfo')[0];
         detailPanel.setData(StartStop.user);

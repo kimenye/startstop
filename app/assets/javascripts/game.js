@@ -5,7 +5,8 @@ Ext.application({
 
     models: [
         'Player',
-        'Game'
+        'Game',
+        'Message'
     ],
 
     controllers: [
@@ -16,12 +17,14 @@ Ext.application({
     views: [
         'Login',
         'Main',
-        'games.List'
+        'games.List',
+        'messages.List'
     ],
 
     stores: [
         'Players',
-        'Games'
+        'Games',
+        'Messages'
     ],
 
     config: {
