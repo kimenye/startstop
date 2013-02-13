@@ -72,7 +72,7 @@ Ext.define('StartStop.controller.Games', {
                 status: "pending"
             };
 
-            var token = document.getElementsByName("csrf-token")[0].getAttribute("content");
+            var token = helpers.csrf_token();
 
             Ext.Ajax.request({
                 url: "/games?authenticity_token=" + token,

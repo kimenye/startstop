@@ -127,7 +127,6 @@ Ext.define('StartStop.controller.Facebook', {
             Ext.Msg.prompt("Email Address Required!", "We need a valid email address to continue", this.initUser, this);
         }
         else {
-//            console.log("Prepare to create");
             var params = {
                 fb_id: StartStop.userData.id,
                 name: StartStop.userData.name,
@@ -135,7 +134,7 @@ Ext.define('StartStop.controller.Facebook', {
             };
 
             Ext.Ajax.request({
-                url: "/players",
+                url: "/players?authenticity_token=" + helpers.csrf_token(),
                 method: "POST",
                 headers: {
                     "Accept" : "application/json"
