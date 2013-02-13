@@ -137,3 +137,31 @@ p.empty {
     display: none;
   }
 }
+
+.x-list-item-inner .game {
+  display: -webkit-box;
+  display: box;
+  -webkit-box-orient: horizontal;
+  box-orient: horizontal;
+  -webkit-box-align: center;
+  box-align: center
+}
+
+.x-list-item-inner .game .title {
+  -webkit-box-flex: 1;
+  box-flex: 1;
+  font-weight: normal;
+  font-size: 80%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap
+}
+
+.x-list-item-inner .game .room {
+  font-size: 10px !important;
+  color: #d40e3f;
+  margin-left: .5em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis
+}

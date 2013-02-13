@@ -7,7 +7,7 @@ class Game < ActiveRecord::Base
     opponents = self.game_participants.map do |p|
       p.player_name
     end
-    opponents.join(" vs ")
+    opponents.join(",")
   end
 end
 

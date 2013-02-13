@@ -15,7 +15,7 @@ class GamesController < ApplicationController
       #  })
       #}
 
-      format.json { render json: @games.to_json({:methods => [:opponents]}) }
+      format.json { render json: @games.as_json({:methods => [:opponents]}) }
     end
   end
 
