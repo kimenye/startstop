@@ -1,6 +1,6 @@
 class CreateGameParticipants < ActiveRecord::Migration
   def up
-    create_table :game_participants, :id => false do |t|
+    create_table :game_participants do |t|
       t.column :game_id, :integer
       t.column :player_id, :integer
     end

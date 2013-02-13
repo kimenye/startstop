@@ -107,4 +107,26 @@ class GamesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def handle_invitation
+    game = Game.find(params[:id])
+    participant = GameParticipant.find_by_game_id_and_player_id(params[:id], params[:player_id])
+
+    participant.status = params[:status]
+    participant.save!
+
+    accepted_participants = game.game_participants.reject do |p|
+      p.status != "Accepted"
+    end
+
+    if accepted_participants.length == game.game_participants.length
+      game.status = "In Progress"
+      game.save!
+    end
+
+    respond_to do |format|
+      format.html { redirect_to games_url }
+      format.json { render json: game }
+    end
+  end
 end

@@ -192,16 +192,20 @@ Ext.define('StartStop.controller.Facebook', {
         });
 
         SHOTGUN.listen("invite-received", function(message) {
-            Ext.getStore('Messages').add({ status: "unread", from: message.from, sender: message.sender, message: " wants to play Start / Stop with you.", sent_at: new Date() });
-            var main = Ext.ComponentQuery.query('mainTab')[0]
+            Ext.getStore('Messages').add({ status: "unread", game: message.game, from: message.from, sender: message.sender, message: " wants to play Start / Stop with you.", sent_at: new Date(), id: new Date().getTime() });
+            SHOTGUN.fire("update-message-counter", [2,1]);
+        });
+
+        SHOTGUN.listen("update-message-counter", function(tabIndex,counter) {
+            var main = Ext.ComponentQuery.query('mainTab')[0];
             var tabBar = main.getTabBar();
-            var tab = tabBar.getItems().getAt(2);
+            var tab = tabBar.getItems().getAt(tabIndex);
 
             var badgeText = tab.getBadgeText();
             if (badgeText == null)
                 badgeText = 0;
 
-            badgeText++;
+            badgeText+= counter;
             tab.setBadgeText(badgeText);
         });
     },

@@ -48,6 +48,10 @@ var ApplicationHelpers = {
         } catch (e) {
             return '';
         }
+    },
+
+    csrf_token: function() {
+        return document.getElementsByName("csrf-token")[0].getAttribute("content");
     }
 };
 

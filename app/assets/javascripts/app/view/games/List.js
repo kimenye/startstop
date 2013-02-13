@@ -6,7 +6,6 @@ Ext.define('StartStop.view.games.List', {
     initialize: function() {
         this.callParent();
         var self = this;
-        console.log("The list of games has been initialized");
     },
     config: {
         store: 'Games',

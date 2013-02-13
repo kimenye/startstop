@@ -7,6 +7,7 @@ Ext.define('StartStop.model.Message', {
             'status',
             'from',
             'sender',
+            'game',
             'message',
             'sent_at'
         ]
