@@ -13,6 +13,9 @@ Ext.define('StartStop.view.games.List', {
         title: 'Your Games',
         grouped: true,
         emptyText: '<p class="empty">You are not currently playing any games:-(</p>',
+        onItemDisclosure: function(record, btn, index) {
+//            Ext.Msg.alert('Tap', 'Disclose for more info', Ext.emptyFn);
+        },
         itemTpl: [
             '<div class="game"><div class="title">{[this.preprocess_opponents(values.opponents)]}</div><div class="room">{[this.posted(values.created_at)]}</div></div>',
             {
