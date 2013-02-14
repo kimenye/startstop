@@ -24,6 +24,9 @@ Ext.define('StartStop.view.messages.List', {
         var message = this.currentMessage;
         SHOTGUN.fire("update-message-counter", [2,-1]);
 
+        var disclosure = $('#' + message.get('id')).parent().parent().parent().parent().parent().find('.x-list-disclosure');
+        disclosure.css("display", "none");
+
         var scope = {
             view: this,
             message: message
@@ -60,7 +63,7 @@ Ext.define('StartStop.view.messages.List', {
         },
         itemTpl: Ext.create('Ext.XTemplate',
             '<img src="https://graph.facebook.com/{from}/picture?type=square" />',
-            '<div class="msg">',
+            '<div class="msg" id="{id}">',
                 '<span class="posted">{[this.posted(values.sent_at)]}</span>',
                 '<h2>{sender}</h2>',
             '<p>{message}</p>',
