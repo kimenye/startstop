@@ -10,20 +10,28 @@ Ext.define('StartStop.view.games.List', {
     config: {
         store: 'Games',
         title: 'Your Games',
+        cls: 'games',
         grouped: true,
         emptyText: '<p class="empty">You are not currently playing any games:-(</p>',
         onItemDisclosure: function(record, btn, index) {
-//            Ext.Msg.alert('Tap', 'Disclose for more info', Ext.emptyFn);
         },
-        itemTpl: [
-            '<div class="game"><div class="title">{[this.preprocess_opponents(values.opponents)]}</div><div class="time">{[this.posted(values.created_at)]}</div></div>',
+        itemTpl: Ext.create('Ext.XTemplate',
+                '{[this.vs_images(values.opponents)]}',
+                '<div class="game">',
+                    '<span class="posted">{[this.posted(values.created_at)]}</span>',
+                    '<h2>{[this.vs_text(values.versus)]}</h2>',
+                    '<p>{status_text}</p>',
+                '</div>',
             {
                 posted: helpers.time_ago,
-
-                preprocess_opponents: function(raw) {
+                vs_text: function(raw) {
+                    var opponents = raw.split(",");
+                    opponents = _.without(opponents, StartStop.user.name);
+                    return opponents[0];
+                },
+                vs_images: function(raw) {
                     var opponents = raw.split(",");
                     opponents = _.without(opponents, StartStop.user.fb_id);
-//                    return "Me vs " + opponents.join(" vs ");  /
                     var str = "";
                     var urls = [];
                     _.each(opponents, function(opponent) {
@@ -36,7 +44,6 @@ Ext.define('StartStop.view.games.List', {
                     return str;
                 }
             }
-
-        ]
+        )
     }
 });

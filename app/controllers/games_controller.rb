@@ -9,13 +9,7 @@ class GamesController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      #format.json { render json: @games.to_json({:include => [
-      #    :game_participants => { :only => [:status], :methods => [:player_name]}
-      #    ]
-      #  })
-      #}
-
-      format.json { render json: @games.as_json({:methods => [:opponents]}) }
+      format.json { render json: @games.as_json({:methods => [:opponents, :versus, :status_text]}) }
     end
   end
 

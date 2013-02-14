@@ -142,41 +142,12 @@ p.empty {
   }
 }
 
-.x-list-item-inner .game {
-  display: -webkit-box;
-  display: box;
-  -webkit-box-orient: horizontal;
-  box-orient: horizontal;
-  -webkit-box-align: center;
-  box-align: center;
-  min-height: 50px;
-}
-
-.x-list-item-inner .game .title {
-  -webkit-box-flex: 1;
-  box-flex: 1;
-  font-weight: normal;
-  font-size: 80%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap
-}
-
-.x-list-item-inner .game .time {
-  font-size: 10px !important;
-  color: #d40e3f;
-  margin-left: .5em;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis
-}
-
-.messages h2 {
+.messages h2, .games h2 {
   font-weight: bold;
   padding-bottom: 3px
 }
 
-.messages img, .game img {
+.messages img, .games img {
   border-radius: 5px;
   float: left
 }
@@ -185,18 +156,14 @@ p.empty {
   margin-right: 5px;
 }
 
-.messages .msg {
+.messages .msg, .games .game {
   font-size: 70%;
   margin-left: 60px;
   color: #333;
   min-height: 50px
 }
 
-.messages .x-list-item {
-  border-top: 1px solid white
-}
-
-.messages .posted {
+.messages .posted, .games .posted {
   float: right
 }
 

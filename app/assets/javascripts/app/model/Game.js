@@ -9,7 +9,9 @@ Ext.define('StartStop.model.Game', {
             'id',
             'status',
             'opponents',
-            'created_at'
+            'created_at',
+            'status_text',
+            'versus'
         ]
     }
 });

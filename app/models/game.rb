@@ -5,10 +5,22 @@ class Game < ActiveRecord::Base
 
   def opponents
     opponents = self.game_participants.map do |p|
-      p.player_name
       p.player_fb_id
     end
     opponents.join(",")
+  end
+
+  def versus
+    opponents = self.game_participants.map do |p|
+      p.player_name
+    end
+    opponents.join(",")
+  end
+
+  def status_text
+    if self.status == "pending"
+      "Waiting for your opponent"
+    end
   end
 end
 
