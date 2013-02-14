@@ -2,10 +2,16 @@ Startstop
 ========================
 A kenyan trivia based game.
 
-Setup:
-------
+Setup (For the first time you are running the app):
+---------------------------------------------------
 1. Rename config/database.example.yml to database.yml
 2. Rename config/application.example.yml to application.yml
 3. Enter the Facebook App id value in Application_ID in the application.yml
-4. run rake db:migrate
-5. run rails s
+4. run bundle install
+5. run rake db:migrate
+6. run rails s
+
+Normal Running
+--------------
+1. git pull origin master
+2. rails s
